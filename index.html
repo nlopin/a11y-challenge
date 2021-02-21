@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>Государственный музей изобразительных искусств имени Пушкина</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <header class="header" role="banner">
-        <div class="header__logo">
-            <img src="images/logo.png" alt="Логотип музея изобразительных искусств имени Пушкина">
-        </div>
-        <div class="header__skip-container">
-            <a class="header__skip-to-main" href="#content">
-                Skip to main
-            </a>
-        </div>
-    </header>
-    <main role="main" id="content">
-    </main>
-    <footer role="contentinfo"></footer>
+<header class="header" role="banner">
+    <div class="header__logo">
+        <img src="images/logo.png" alt="Логотип музея изобразительных искусств имени Пушкина">
+    </div>
+    <a class="header__skip-container" href="#content">
+        Skip to main
+    </a>
+    <form class="search" role="search" aria-label="Поиск">
+        <input type="text" aria-label="Поисковый запрос" class="search__input">
+        <button type="submit" class="search__submit">
+            <span class="visually-hidden">Искать</span>
+            <img src="images/magnifying-glass.svg" alt="" role="presentation">
+        </button>
+    </form>
+    <nav class="lang" aria-label="Выбрать язык" role="navigation">
+        <span class="lang__button lang__button__active" aria-label="Русский">RU</span>
+        <a href="/en" hreflang="en" aria-label="English" class="lang__button">EN</a>
+    </nav>
+    <button aria-haspopup="dialog" class="login">
+        <span class="visually-hidden">Войти в личный кабинет</span>
+        <img src="images/user.svg" alt="" role="presentation">
+    </button>
+</header>
+
+<main role="main" id="content" class="main">
+    <h1 class="visually-hidden">Главная страница</h1>
+    <div class="carousel"></div>
+    <div class="buttons"></div>
+    <div class="events">
+        <h2>Выставки и события</h2>
+    </div>
+    <div class="museum">
+        <h2>Музей</h2>
+    </div>
+    <div class="online">
+        <h2>Онлайн-трансляции</h2>
+    </div>
+    <div class="tours">
+        <h2>Экскурсии и лекции в прямом эфире</h2>
+    </div>
+</main>
+<footer role="contentinfo" class="footer"></footer>
 </body>
 </html>
