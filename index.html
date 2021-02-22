@@ -58,7 +58,8 @@
     <section aria-labelledby="exhibitions" class="block events">
         <h2 id="exhibitions">Выставки и события</h2>
         <div class="exhibitions__filters" aria-label="Фильтр выставок и событий" aria-controls="exhibition-list">
-            <button class="button exhibitions__filter exhibitions__filter__active" aria-selected="true" data-tag="all" tabindex="0">
+            <button class="button exhibitions__filter exhibitions__filter__active" aria-selected="true" data-tag="all"
+                    tabindex="0">
                 Все
             </button>
             <button class="button exhibitions__filter" aria-selected="true" data-tag="today" tabindex="-1">
@@ -202,7 +203,38 @@
 </main>
 <footer role="contentinfo" class="footer">
     <div class="footer__wrapper">
+        <div class="footer__left">
+            <a class="footer__link" href="/special-needs">Посетителям с ограниченными возможностями</a>
+            <a class="footer__link" href="/tickets">Билеты и льготы</a>
+            <a class="footer__link" href="/corruption">Противодействие коррупции</a>
 
+            <div class="footer__social">
+                <p class="footer__heading">Соцсети</p>
+                <a class="footer__social-link" href="mailto:info@test.com" aria-label="Отправить письмо">
+                    <img src="images/mail-icon.png" alt="" role="presentation">
+                </a>
+                <a class="footer__social-link" href="t.me/nlopin" aria-label="Канал Пушкинского музея в Телеграме">
+                    <img src="images/tg-icon.png" alt="" role="presentation">
+                </a>
+                <a class="footer__social-link" href="facebook.com" aria-label="Страница Пушкинского музея в Фейсбуке">
+                    <img src="images/fb-icon.png" alt="" role="presentation">
+                </a>
+            </div>
+        </div>
+        <div class="footer__right">
+            <h2 id="newsletter" class="footer__heading">Подписка на новости</h2>
+            <form aria-labelledby="newsletter">
+                <div class="footer__form-row">
+                    <label class="footer__label-email" for="email">E-mail</label>
+                    <input class="footer__input-email" type="email" id="email">
+                    <input class="footer__submit" type="submit" value="Подписаться">
+                </div>
+                <div class="footer__checkbox-row">
+                    <input class="footer__input-checkbox" id="acceptance" type="checkbox" required aria-required="true">
+                    <label class="footer__input-checkbox-label" for="acceptance">Согласен на обработку персональных данных</label>
+                </div>
+            </form>
+        </div>
     </div>
 </footer>
 

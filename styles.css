@@ -202,6 +202,87 @@ a:visited {
 .footer__wrapper {
     max-width: 1032px;
     margin: 0 auto;
+    display: flex;
+}
+
+.footer__left {
+    width: 50%;
+    margin-right: 4.875rem;
+}
+
+.footer__right {
+    width: 50%;
+}
+
+.footer__link {
+    display: block;
+    font-size: 1.125rem;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+.footer__social {
+    margin: 2.5rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+.footer__social-link {
+    text-decoration: none;
+    margin-right: 1.5rem
+}
+
+.footer__social-link:last-child {
+    margin-right: 0;
+}
+
+.footer__heading {
+    font-size: 1.5rem;
+    line-height: 1.15;
+    margin: 0 0 2rem;
+}
+
+.footer__form-row, .footer__checkbox-row {
+    margin-bottom: 1.25rem;
+    font-size: 1.125rem;
+}
+
+.footer__checkbox-row {
+    display: flex;
+    align-items: center;
+}
+
+.footer__input-email {
+    padding: 0 .5rem;
+    border: none;
+    background-color: transparent;
+    font-size: 1.125rem;
+    border-bottom: 1px solid #000;
+    margin-right: 1rem;
+}
+
+.footer__input-checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #FFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__input-checkbox-label {
+    margin-left: .5rem;
+}
+
+input[type=submit].footer__submit {
+    font-size: 1.125rem;
+    padding: .75rem 1.25rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--deep-violet);
+    color: #fff;
 }
 
 #overlay {
