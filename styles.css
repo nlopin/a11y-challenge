@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -15,7 +17,7 @@ body {
     padding: 0;
     font-family: "Roboto", sans-serif;
     background-color: #fff;
-
+    font-display: swap;
 }
 
 h2 {
@@ -23,6 +25,13 @@ h2 {
     line-height: 1.2;
     font-weight: 400;
     margin-bottom: 2.5rem;
+}
+
+h3 {
+    font-size:1.625rem;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: .5rem;
 }
 
 .button {
@@ -245,4 +254,37 @@ h2 {
 .dialog__form-button {
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.museum__tabs {
+    display: flex;
+    align-items: center;
+}
+
+.museum__tab {
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.museum__tab__active {
+    background-color: var(--grayish-blue);
+    text-decoration: none;
+}
+
+.museum__tabpanel {
+    display: none;
+    padding-top: 3rem;
+}
+
+.museum__tabpanel__active {
+    display: block;
+}
+
+.museum__buildings {
+    list-style: none;
+    padding-left:0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3rem;
+    row-gap: 4rem;
 }

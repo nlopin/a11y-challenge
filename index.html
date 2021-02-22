@@ -60,9 +60,95 @@
     </section>
     <section aria-labelledby="museum" class="block museum">
         <h2 id="museum">Музей</h2>
+        <div class="museum__tabs" role="tablist">
+            <button class="button museum__tab museum__tab__active" role="tab" aria-selected="true"
+                    aria-controls="buildings-tab" id="buildings" tabindex="0">
+                Здания
+            </button>
+            <button class="button museum__tab" role="tab" aria-selected="false" aria-controls="history-tab" id="history"
+                    tabindex="-1">
+                История
+            </button>
+        </div>
+        <div class="museum__tabpanel museum__tabpanel__active"
+                tabindex="0"
+                role="tabpanel"
+                id="buildings-tab"
+                aria-labelledby="buildings">
+            <ul class="museum__buildings">
+                <li class="museum__building" aria-labelledby="richter">
+                    <img src="images/building-richter.png" role="presentation" alt="">
+                    <h3 id="richter">МЕМОРИАЛЬНАЯ КВАРТИРА С.Т. РИХТЕРА</h3>
+                    <p>ул. Большая Бронная, 2/6, 16 этаж, кв. 58</p>
+                    <a href="/richter">Подробнее</a>
+                </li>
+                <li class="museum__building" aria-labelledby="museion">
+                    <img src="images/building-museion.png" role="presentation" alt="">
+                    <h3 id="museion">ЦЭВ «МУСЕЙОН»</h3>
+                    <p>Колымажный пер., 6/2, 3 (вход с Малого Знаменского переулка)</p>
+                    <a href="/museion">Подробнее</a>
+                </li>
+                <li class="museum__building" aria-labelledby="usadba">
+                    <img src="images/building-usadba.png" role="presentation" alt="">
+                    <h3 id="usadba">УСАДЬБА ЛОПУХИНЫХ</h3>
+                    <p>Малый Знаменский пер., 3/5с4</p>
+                    <a href="/usadba">Подробнее</a>
+                </li>
+                <li class="museum__building" aria-labelledby="study-museum">
+                    <img src="images/building-study.png" role="presentation" alt="">
+                    <h3 id="study-museum">УЧЕБНЫЙ МУЗЕЙ</h3>
+                    <p>ул. Чаянова, 15</p>
+                    <a href="/study-museum">Подробнее</a>
+                </li>
+                <li class="museum__building" aria-labelledby="private-collections">
+                    <img src="images/building-private-collections.png" role="presentation" alt="">
+                    <h3 id="private-collections">ОТДЕЛ ЛИЧНЫХ КОЛЛЕКЦИЙ</h3>
+                    <p>ул. Волхонка, 10</p>
+                    <a href="/private-collections">Подробнее</a>
+                </li>
+                <li class="museum__building" aria-labelledby="gallery">
+                    <img src="images/building-gallery.png" role="presentation" alt="">
+                    <h3 id="gallery">ГАЛЕРЕЯ</h3>
+                    <p>ул. Волхонка, 14</p>
+                    <a href="/gallery">Подробнее</a>
+                </li>
+            </ul>
+        </div>
+        <div tabindex="-1"
+                class="museum__tabpanel"
+                role="tabpanel"
+                id="history-tab"
+                aria-labelledby="history">
+            <p>
+                Государственный музей изобразительных искусств имени А.С. Пушкина – одно из крупнейших в России
+                художественных собраний зарубежного искусства с древнейших времен до наших дней.
+            </p>
+            <p>
+                В современной экспозиции представлены обширная учебная коллекция тонированных гипсовых слепков с
+                произведений Античности, Средних веков и эпохи Возрождения, а также собрание подлинных произведений
+                живописи, скульптуры, графики и декоративно-прикладного искусства.
+            </p>
+            <p>
+                В залах первого этажа Главного здания представлены: произведения искусства Древнего Египта, Античности,
+                собрание европейской живописи VIII–XVIII веков; два зала – Итальянский и Греческий дворики – занимают
+                слепки. На втором этаже Главного здания в залах размещены слепки произведений искусства Древней Греции,
+                Рима, Средних веков и Возрождения.
+            </p>
+            <p>
+                В начале 2017 года музей определил новое направление своей деятельности – Пушкинский XXI, –
+                ориентированное на современное российское и западное искусство во всех аспектах – выставочном,
+                образовательном и исследовательском. Таким образом, ГМИИ им. А.С. Пушкина представляет собой открытую,
+                интерактивную сцену, демонстрирующую развитие мировой культуры с древности до наших дней, живое,
+                знакомое с детства пространство для получения знаний и общения.
+            </p>
+            <a href="/history">Читать далее</a>
+        </div>
     </section>
     <section aria-labelledby="online" class="block online">
         <h2 id="online">Онлайн-трансляции</h2>
+        <iframe width="1032" height="611" src="https://www.youtube.com/embed/bN2qGlyLBIA" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
     </section>
     <section aria-labelledby="tours-online" class="block tours">
         <h2 id="tours-online">Экскурсии и лекции в прямом эфире</h2>
@@ -91,7 +177,6 @@
         aria-modal="true"
         id="dialog"
         class="dialog hidden"
-        tabindex="-1"
 >
     <button class="dialog__button-close" aria-label="Закрыть">×</button>
     <h2 id="login-modal" class="dialog__title">
