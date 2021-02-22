@@ -52,7 +52,7 @@
         </a>
     </div>
 </nav>
-<main role="main" id="content" class="main">
+<main role="main" id="content" class="main" tabindex="-1">
     <h1 class="visually-hidden">Главная страница</h1>
     <section class="block carousel"></section>
     <section aria-labelledby="exhibitions" class="block events">
@@ -85,12 +85,12 @@
     </div>
 </footer>
 
-<div id="overlay" class=""></div>
+<div id="overlay" class="hidden"></div>
 <div role="dialog"
         aria-labelledby="login-modal"
         aria-modal="true"
         id="dialog"
-        class="dialog"
+        class="dialog hidden"
         tabindex="-1"
 >
     <button class="dialog__button-close" aria-label="Закрыть">×</button>
