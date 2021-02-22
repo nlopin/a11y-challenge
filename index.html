@@ -15,7 +15,7 @@
         Skip to main
     </a>
     <form class="search" role="search" aria-label="Поиск">
-        <input type="text" aria-label="Поисковый запрос" class="search__input">
+        <input type="search" aria-label="Поисковый запрос" class="search__input">
         <button type="submit" class="search__submit">
             <span class="visually-hidden">Искать</span>
             <img src="images/magnifying-glass.svg" alt="" role="presentation">
@@ -67,12 +67,15 @@
     <section aria-labelledby="tours-online" class="block tours">
         <h2 id="tours-online">Экскурсии и лекции в прямом эфире</h2>
         <p class="tours__paragraph">
-            С 1 июля вы можете присоединиться к нашим виртуальным мероприятиям — экскурсиям и лекциям для взрослых и детей, оплатив участие на сайте. Встречи будут проходить в прямом эфире на платформе Zoom; предусмотрен формат живого общения с возможностью задавать вопросы экскурсоводу (лектору).
+            С 1 июля вы можете присоединиться к нашим виртуальным мероприятиям — экскурсиям и лекциям для взрослых и
+            детей, оплатив участие на сайте. Встречи будут проходить в прямом эфире на платформе Zoom; предусмотрен
+            формат живого общения с возможностью задавать вопросы экскурсоводу (лектору).
             <a href="/join-online-events" class="tours__link">Подробнее</a>
 
         </p>
         <p class="tours__paragraph">
-            Мы будем благодарны за любое <a href="/donate" class="tours__link">пожертвование</a>. Все поступившие средства будут направлены на организацию онлайн-проектов для наших посетителей.
+            Мы будем благодарны за любое <a href="/donate" class="tours__link">пожертвование</a>. Все поступившие
+            средства будут направлены на организацию онлайн-проектов для наших посетителей.
         </p>
     </section>
 </main>
@@ -81,5 +84,38 @@
 
     </div>
 </footer>
+
+<div id="overlay" class=""></div>
+<div role="dialog"
+        aria-labelledby="login-modal"
+        aria-modal="true"
+        id="dialog"
+        class="dialog"
+        tabindex="-1"
+>
+    <button class="dialog__button-close" aria-label="Закрыть">×</button>
+    <h2 id="login-modal" class="dialog__title">
+        Вход
+    </h2>
+    <form class="dialog__form" aria-labelledby="login-modal">
+        <div class="dialog__form-row">
+            <label for="username">
+                Логин
+            </label>
+            <input type="text" id="username" class="dialog__form-input">
+        </div>
+        <div class="dialog__form-row">
+            <label for="password">
+                Пароль
+            </label>
+            <input type="password" id="password" class="dialog__form-input">
+        </div>
+        <div class="dialog__form-row">
+            <input type="submit" value="Войти" class="button dialog__form-button">
+        </div>
+    </form>
+</div>
+
+<script src="index.js"></script>
 </body>
 </html>
