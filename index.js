@@ -45,11 +45,7 @@ closeLoginModalButton.addEventListener('click', () => {
 
 tabs.forEach(tab => tab.addEventListener('click', (e) => {
     e.preventDefault()
-    const controlledPanelId = e.target.getAttribute('aria-controls')
-    const panelToActivate = document.getElementById(controlledPanelId)
-
-    tabpanels.forEach(panel => panel.classList.remove(CLASS.tabpanelActive))
-    panelToActivate.classList.add(CLASS.tabpanelActive)
+    activateTab(e.target)
 }))
 
 window.addEventListener('keydown', (e) => {
@@ -76,7 +72,7 @@ window.addEventListener('keydown', (e) => {
             const tabIndex = tabs.indexOf(document.activeElement)
             if (tabIndex !== -1) {
                 const nextIndex = tabIndex === 0 ? tabs.length - 1 : tabIndex - 1
-                activate(tabs, nextIndex, CLASS)
+                focusNextItem(tabs, nextIndex, CLASS)
             }
             break
         }
@@ -84,7 +80,7 @@ window.addEventListener('keydown', (e) => {
             const tabIndex = tabs.indexOf(document.activeElement)
             if (tabIndex !== -1) {
                 const nextIndex = tabIndex === tabs.length - 1 ? 0 : tabIndex + 1
-                activate(tabs, nextIndex, CLASS)
+                focusNextItem(tabs, nextIndex, CLASS)
             }
             break
         }
@@ -92,7 +88,7 @@ window.addEventListener('keydown', (e) => {
             //TODO check the key name
             const tabIndex = tabs.indexOf(document.activeElement)
             if (tabIndex > 0) {
-                activate(tabs, 0, CLASS)
+                focusNextItem(tabs, 0, CLASS)
             }
             break
         }
@@ -100,7 +96,7 @@ window.addEventListener('keydown', (e) => {
             //TODO check the key name
             const tabIndex = tabs.indexOf(document.activeElement)
             if (tabIndex >= 0) {
-                activate(tabs, tabs.length - 1, CLASS)
+                focusNextItem(tabs, tabs.length - 1, CLASS)
             }
             break
         }
@@ -108,25 +104,32 @@ window.addEventListener('keydown', (e) => {
         case key.ENTER: {
             const tabIndex = tabs.indexOf(document.activeElement)
             if (tabIndex !== -1) {
-                const tab = tabs[tabIndex]
-                const controlledPanelId = tab.getAttribute('aria-controls')
-                const panelToActivate = document.getElementById(controlledPanelId)
-
-                tabs.forEach(tab => tab.classList.remove(CLASS.tabActive))
-                tabpanels.forEach(panel => panel.classList.remove(CLASS.tabpanelActive))
-
-                tab.classList.add(CLASS.tabActive)
-                panelToActivate.classList.add(CLASS.tabpanelActive)
+                activateTab(tabs[tabIndex])
             }
             break
         }
     }
 })
 
-function activate(items, index) {
+function focusNextItem(items, index) {
     items.forEach(item => {
         item.setAttribute('tabindex', '-1')
     })
     items[index].setAttribute('tabindex', '0')
     items[index].focus()
+}
+
+function activateTab(tab) {
+    const controlledPanelId = tab.getAttribute('aria-controls')
+    const panelToActivate = document.getElementById(controlledPanelId)
+
+    tabs.forEach(tab => {
+        tab.classList.remove(CLASS.tabActive)
+        tab.setAttribute('aria-selected', 'false')
+    })
+    tabpanels.forEach(panel => panel.classList.remove(CLASS.tabpanelActive))
+
+    tab.classList.add(CLASS.tabActive)
+    tab.setAttribute('aria-selected', 'true')
+    panelToActivate.classList.add(CLASS.tabpanelActive)
 }
