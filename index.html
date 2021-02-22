@@ -54,21 +54,32 @@
 </nav>
 <main role="main" id="content" class="main">
     <h1 class="visually-hidden">Главная страница</h1>
-    <div class="carousel"></div>
-    <div class="buttons"></div>
-    <div class="events">
-        <h2>Выставки и события</h2>
-    </div>
-    <div class="museum">
-        <h2>Музей</h2>
-    </div>
-    <div class="online">
-        <h2>Онлайн-трансляции</h2>
-    </div>
-    <div class="tours">
-        <h2>Экскурсии и лекции в прямом эфире</h2>
-    </div>
+    <section class="block carousel"></section>
+    <section aria-labelledby="exhibitions" class="block events">
+        <h2 id="exhibitions">Выставки и события</h2>
+    </section>
+    <section aria-labelledby="museum" class="block museum">
+        <h2 id="museum">Музей</h2>
+    </section>
+    <section aria-labelledby="online" class="block online">
+        <h2 id="online">Онлайн-трансляции</h2>
+    </section>
+    <section aria-labelledby="tours-online" class="block tours">
+        <h2 id="tours-online">Экскурсии и лекции в прямом эфире</h2>
+        <p class="tours__paragraph">
+            С 1 июля вы можете присоединиться к нашим виртуальным мероприятиям — экскурсиям и лекциям для взрослых и детей, оплатив участие на сайте. Встречи будут проходить в прямом эфире на платформе Zoom; предусмотрен формат живого общения с возможностью задавать вопросы экскурсоводу (лектору).
+            <a href="/join-online-events" class="tours__link">Подробнее</a>
+
+        </p>
+        <p class="tours__paragraph">
+            Мы будем благодарны за любое <a href="/donate" class="tours__link">пожертвование</a>. Все поступившие средства будут направлены на организацию онлайн-проектов для наших посетителей.
+        </p>
+    </section>
 </main>
-<footer role="contentinfo" class="footer"></footer>
+<footer role="contentinfo" class="footer">
+    <div class="footer__wrapper">
+
+    </div>
+</footer>
 </body>
 </html>
