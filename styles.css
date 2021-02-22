@@ -104,11 +104,45 @@ h2 {
     border: none;
 }
 
+.navigation {
+    max-width: 1032px;
+    margin: 0 auto;
+}
+
+.navigation__menu {
+    display: flex;
+    align-items: center;
+}
+
+.navigation__menu > .navigation__menuitem:last-child {
+    margin-right: 0;
+}
+
+.navigation__menu > .navigation__menuitem:first-child {
+    padding-left: 0;
+}
+
+.navigation__menuitem {
+    display: block;
+    font-size: 1.125rem;
+    margin-right: 1.5rem;
+    text-decoration: none;
+    color: #000;
+    padding: 1rem;
+}
+
+.navigation__menuitem:hover {
+    text-decoration: underline;
+}
+
+.navigation__menuitem__highlighted {
+    color: var(--deep-violet);
+    font-weight: 700;
+}
+
 .main {
     max-width: 1032px;
     margin: 0 auto 10rem;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .footer {
