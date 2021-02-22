@@ -9,7 +9,8 @@ const SELECTOR = {
 const CLASS = {
     hidden: 'hidden',
     tabpanelActive: 'museum__tabpanel__active',
-    tabActive: 'museum__tab__active'
+    tabActive: 'museum__tab__active',
+    filterActive: 'exhibitions__filter__active',
 }
 
 const key = {
@@ -31,8 +32,11 @@ const overlay = document.querySelector(SELECTOR.overlay)
 const dialogWindow = document.querySelector(SELECTOR.loginModal)
 const submitLoginButton = document.querySelector(SELECTOR.submitLoginButton)
 
-const tabs = Array.from(document.querySelectorAll('.museum__tab'))
-const tabpanels = Array.from(document.querySelectorAll('.museum__tabpanel'))
+const exhibitionFilters = Array.from(document.querySelectorAll('.exhibitions__filter'))
+const exhibitionItems = Array.from(document.querySelectorAll('.exhibition__item'))
+
+const museumTabs = Array.from(document.querySelectorAll('.museum__tab'))
+const museumTabpanels = Array.from(document.querySelectorAll('.museum__tabpanel'))
 
 openLoginModalButton.addEventListener('click', () => {
     [overlay, dialogWindow].forEach(el => el.classList.remove(CLASS.hidden))
@@ -43,9 +47,14 @@ closeLoginModalButton.addEventListener('click', () => {
     openLoginModalButton.focus()
 })
 
-tabs.forEach(tab => tab.addEventListener('click', (e) => {
+museumTabs.forEach(tab => tab.addEventListener('click', (e) => {
     e.preventDefault()
     activateTab(e.target)
+}))
+
+exhibitionFilters.forEach(filter => filter.addEventListener('click', (e) => {
+    e.preventDefault()
+    activateFilter(e.target)
 }))
 
 window.addEventListener('keydown', (e) => {
@@ -69,43 +78,82 @@ window.addEventListener('keydown', (e) => {
             break
         }
         case key.LEFT: {
-            const tabIndex = tabs.indexOf(document.activeElement)
+            const tabIndex = museumTabs.indexOf(document.activeElement)
             if (tabIndex !== -1) {
-                const nextIndex = tabIndex === 0 ? tabs.length - 1 : tabIndex - 1
-                focusNextItem(tabs, nextIndex, CLASS)
+                const nextIndex = tabIndex === 0 ? museumTabs.length - 1 : tabIndex - 1
+                focusNextItem(museumTabs, nextIndex)
+                break
             }
+
+            const filterIndex = exhibitionFilters.indexOf(document.activeElement)
+            if (filterIndex !== -1) {
+                const nextIndex = filterIndex === 0 ? focusNextItem().length - 1 : filterIndex - 1
+                focusNextItem(exhibitionFilters, nextIndex)
+                break
+            }
+
             break
         }
         case key.RIGHT: {
-            const tabIndex = tabs.indexOf(document.activeElement)
+            const tabIndex = museumTabs.indexOf(document.activeElement)
             if (tabIndex !== -1) {
-                const nextIndex = tabIndex === tabs.length - 1 ? 0 : tabIndex + 1
-                focusNextItem(tabs, nextIndex, CLASS)
+                const nextIndex = tabIndex === museumTabs.length - 1 ? 0 : tabIndex + 1
+                focusNextItem(museumTabs, nextIndex)
+                break
             }
+
+            const filterIndex = exhibitionFilters.indexOf(document.activeElement)
+            if (filterIndex !== -1) {
+                const nextIndex = filterIndex === exhibitionFilters.length - 1 ? 0 : filterIndex + 1
+                focusNextItem(exhibitionFilters, nextIndex)
+                break
+            }
+
             break
         }
         case key.HOME: {
-            //TODO check the key name
-            const tabIndex = tabs.indexOf(document.activeElement)
+            const tabIndex = museumTabs.indexOf(document.activeElement)
             if (tabIndex > 0) {
-                focusNextItem(tabs, 0, CLASS)
+                focusNextItem(museumTabs, 0)
+                break
             }
+
+            const filterIndex = exhibitionFilters.indexOf(document.activeElement)
+            if (filterIndex > 0) {
+                focusNextItem(exhibitionFilters, 0)
+                break
+            }
+
             break
         }
         case key.END: {
-            //TODO check the key name
-            const tabIndex = tabs.indexOf(document.activeElement)
+            const tabIndex = museumTabs.indexOf(document.activeElement)
             if (tabIndex >= 0) {
-                focusNextItem(tabs, tabs.length - 1, CLASS)
+                focusNextItem(museumTabs, museumTabs.length - 1)
+                break
+            }
+
+            const filterIndex = exhibitionFilters.indexOf(document.activeElement)
+            if (filterIndex >= 0) {
+                focusNextItem(exhibitionFilters, exhibitionFilters.length - 1)
+                break
             }
             break
         }
         case key.SPACE:
         case key.ENTER: {
-            const tabIndex = tabs.indexOf(document.activeElement)
+            const tabIndex = museumTabs.indexOf(document.activeElement)
             if (tabIndex !== -1) {
-                activateTab(tabs[tabIndex])
+                activateTab(museumTabs[tabIndex])
+                break
             }
+
+            const filterIndex = exhibitionFilters.indexOf(document.activeElement)
+            if (filterIndex !== -1) {
+                activateFilter(exhibitionFilters[filterIndex])
+                break
+            }
+
             break
         }
     }
@@ -123,13 +171,32 @@ function activateTab(tab) {
     const controlledPanelId = tab.getAttribute('aria-controls')
     const panelToActivate = document.getElementById(controlledPanelId)
 
-    tabs.forEach(tab => {
+    museumTabs.forEach(tab => {
         tab.classList.remove(CLASS.tabActive)
         tab.setAttribute('aria-selected', 'false')
     })
-    tabpanels.forEach(panel => panel.classList.remove(CLASS.tabpanelActive))
+    museumTabpanels.forEach(panel => panel.classList.remove(CLASS.tabpanelActive))
 
     tab.classList.add(CLASS.tabActive)
     tab.setAttribute('aria-selected', 'true')
     panelToActivate.classList.add(CLASS.tabpanelActive)
+}
+
+function activateFilter(filter) {
+    exhibitionFilters.forEach(tab => {
+        tab.classList.remove(CLASS.filterActive)
+        tab.setAttribute('aria-selected', 'false')
+    })
+    exhibitionItems.forEach(item => {
+        const filterBy = filter.dataset.tag
+        const tags = item.dataset.tags.split(',')
+        if (filterBy === 'all' || tags.includes(filterBy)) {
+            item.classList.remove(CLASS.hidden)
+        } else {
+            item.classList.add(CLASS.hidden)
+        }
+    })
+
+    filter.classList.add(CLASS.filterActive)
+    filter.setAttribute('aria-selected', 'true')
 }

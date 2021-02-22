@@ -57,6 +57,37 @@
     <section class="block carousel"></section>
     <section aria-labelledby="exhibitions" class="block events">
         <h2 id="exhibitions">Выставки и события</h2>
+        <div class="exhibitions__filters" aria-label="Фильтр выставок и событий" aria-controls="exhibition-list">
+            <button class="button exhibitions__filter exhibitions__filter__active" aria-selected="true" data-tag="all" tabindex="0">
+                Все
+            </button>
+            <button class="button exhibitions__filter" aria-selected="true" data-tag="today" tabindex="-1">
+                Сегодня
+            </button>
+            <button class="button exhibitions__filter" aria-selected="true" data-tag="tomorrow" tabindex="-1">
+                Завтра
+            </button>
+        </div>
+        <ul class="exhibition__list" id="exhibition-list" aria-label="Список выставок">
+            <li class="exhibition__item" data-tags="today,tomorrow">
+                <img src="images/richter.png" alt="Картина с изображением седого мужчины с зонтиком, сидящего в кресле">
+                <h3>Святослав Рихтер в кругу друзей. Москва — Коктебель</h3>
+                <p>до 20 ноября</p>
+                <a href="/tickets">Купить билет</a>
+            </li>
+            <li class="exhibition__item" data-tags="today">
+                <img src="images/tatoo.png" alt="Маска, покрытая татуировками">
+                <h3>Тату. 3000 лет истории</h3>
+                <p>до 27 сентября</p>
+                <a href="/tickets">Купить билет</a>
+            </li>
+            <li class="exhibition__item" data-tags="tomorrow">
+                <img src="images/drawings.png" alt="Черно-белый рисунок девушки в полосатой рубашке">
+                <h3>От Дюрера до Матисса. Избранные рисунки из собрания ГМИИ им. А.С. Пушкина</h3>
+                <p>до 1 ноября</p>
+                <a href="/tickets">Купить билет</a>
+            </li>
+        </ul>
     </section>
     <section aria-labelledby="museum" class="block museum">
         <h2 id="museum">Музей</h2>
